@@ -203,9 +203,15 @@ class Board{
     }
 
     public void rollDice(Player curPlayer)throws IOException , NullPointerException{
+        System.out.println("Enter y to roll dice");
         BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
         String s = bfr.readLine();
-        int moveBy = Integer.parseInt(s);
+        String check = "y";
+        if(!s.equals(check))return ;
+        Random rand = new Random();
+        int moveBy = rand.nextInt(6) + 1;
+
+        System.out.println("You rolled a " + moveBy);
 
         if(curPlayer.getCurPos() == null){
             if(moveBy == 1 || moveBy == 6){
